@@ -26,7 +26,7 @@ public class TokenService {
         try {
             var algorithm = Algorithm.HMAC256(SECRET_KEY);
             return JWT.create()
-                    .withIssuer("API Feira Digital")
+                    .withIssuer("API EaTrack")
                     .withSubject(userPrincipal.getUsername())
                     .withExpiresAt(dataExpiracao())
                     .sign(algorithm);
