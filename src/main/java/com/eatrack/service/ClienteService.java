@@ -47,9 +47,7 @@ public class ClienteService {
 
         Usuario user = criarUser(clienteRecord.userRecord());
 
-        Cliente cliente = criarCliente(clienteRecord, user);
-
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
     private Usuario criarUser(UserRecord userRecord){
@@ -67,31 +65,6 @@ public class ClienteService {
         usuario.setDataIni(dataHelper.getDataHora());
 
         Usuario retorno = usuarioRepository.save(usuario);
-
-        return retorno;
-    }
-
-    private Cliente criarCliente(ClienteRecord clienteRecord, Usuario user){
-
-        Cliente objCliente = clienteRepository.findByUsuario(user.getId());
-
-        if (objCliente != null){
-            this.throwStatusException(HttpStatus.UNAUTHORIZED, "Não permitido");
-        }
-
-        Cliente cliente = new Cliente();
-
-        cliente.setNome(clienteRecord.nome());
-        cliente.setDocumento(clienteRecord.documento() != null ? formatadorHelper.formatarDocumentoBanco(clienteRecord.documento()) : null);
-        cliente.setTipoDocumento(clienteRecord.tipoDocumento() != null ? clienteRecord.tipoDocumento() : null);
-        cliente.setCelular(clienteRecord.celular() != null ? formatadorHelper.formatarCelularBanco(clienteRecord.celular()) : null);
-        cliente.setEmail(clienteRecord.email());
-        cliente.setTipoPessoa(clienteRecord.tipoPessoa());
-        cliente.setUsuario(user.getId());
-        cliente.setDataIni(dataHelper.getDataHora());
-        cliente.setStatus(Status.ATIVO);
-
-        Cliente retorno = clienteRepository.save(cliente);
 
         return retorno;
     }
