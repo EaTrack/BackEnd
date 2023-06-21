@@ -1,15 +1,14 @@
 spring:
   datasource:
-    url: jdbc:mysql://mysqldb:3306/eatrack?useSSL=false&createDatabaseIfNotExist=true
+    url: jdbc:mysql://mysqldb:3306/eatrack?useSSL=false&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true
     username: root
     password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     properties:
       hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
         ddl-auto: update
-  jackson:
-    date-format: dd-MM-yyyy HH:mm:ss
-    time-zone: Brazil/East
 
 secret:
   jwt:

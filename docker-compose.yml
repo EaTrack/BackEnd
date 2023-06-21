@@ -26,10 +26,10 @@ services:
     volumes:
       - .m2:/root/.m2
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://mysqldb:3306/eatrack?useSSL=false
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysqldb:3306/eatrack?useSSL=false&allowPublicKeyRetrieval=true
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
-      - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.MySQL5InnoDBDialect
+      - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.MySQLDialect
       - SPRING_JPA_PROPERTIES_HIBERNATE_DDL_AUTO=update
     networks:
       - minha_rede
