@@ -1,8 +1,7 @@
 package com.eatrack.controller.system;
 
 import com.eatrack.model.records.ClienteRecord;
-import com.eatrack.model.records.UserRecord;
-import com.eatrack.service.ClienteService;
+import com.eatrack.service.client.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

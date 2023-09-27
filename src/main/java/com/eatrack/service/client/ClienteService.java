@@ -1,4 +1,4 @@
-package com.eatrack.service;
+package com.eatrack.service.client;
 
 import com.eatrack.helper.DataHelper;
 import com.eatrack.helper.FormatadorHelper;
